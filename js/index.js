@@ -1,3 +1,6 @@
+let playerSelection = prompt("Rock, Paper or Scissors?");
+let computerSelection = getComputerChoice();
+
 function randomNumber (min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
@@ -6,6 +9,8 @@ function getComputerChoice() {
     return choices[randomNumber(0,choices.length)];
 }
 function playRound (playerSelection, computerSelection) {
+    console.log("Your choice is: " + playerSelection);
+    console.log("Browser's choice is: " + computerSelection);
     if (playerSelection == "rock" && computerSelection == "Paper") {
         console.log("You Lose! Paper beats Rock!");
     } else if (playerSelection == "rock" && computerSelection == "Rock"){
@@ -24,8 +29,10 @@ function playRound (playerSelection, computerSelection) {
         console.log("You Win! Scissors beat Paper!");
     } else if (playerSelection == "scissors" && computerSelection == "Scissors") {
         console.log("Draw! Scissors can't beat Scissors!");
+    } else {
+        let playerSelection = prompt("Please input Rock, Paper or Scissors.");
+        let computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection);
     }
 }
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
 playRound(playerSelection, computerSelection);
