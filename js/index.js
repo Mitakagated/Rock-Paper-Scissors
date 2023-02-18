@@ -56,21 +56,27 @@ function game(gameNumber = 5) {
         newChoices();
         playRound(playerSelectionLower, computerSelection);
     }
+    playAgain();
+}
+function callPlayAgain() {
+    playAgain();
+}
+function playAgain() {
     let playAgain = prompt("Do you want to play more? (Yes or No)");
     let playAgainLower = playAgain.toLowerCase();
     if (playAgainLower == "yes") {
         let gameNumber = prompt("How many rounds would you like to play?");
         if (gameNumber > 0) {
             game(gameNumber);
-        } else if (gamenumber <= 0) {
+        } else if (gameNumber <= 0) {
             return alert("Then we are done!");
         } else {
-            gameNumber = prompt("Enter a number of rounds to play.");
+            callPlayAgain();
         }
     } else if (playAgainLower == "no") {
-        return 0;
+        getResults();
     } else {
-        playAgain = prompt("Please enter yes or no.");
+        callPlayAgain();
     }
 }
 function getResults() {
@@ -83,4 +89,3 @@ function getResults() {
     }
 }
 game();
-getResults();
