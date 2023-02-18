@@ -1,4 +1,5 @@
-let playerSelection = prompt("Rock, Paper or Scissors?");
+alert("You will play 5 games of Rock, Paper and Scissors.");
+let playerSelection = "";
 let playerSelectionLower = playerSelection.toLowerCase();
 let computerSelection = getComputerChoice();
 let playerScore = 0;
@@ -50,11 +51,29 @@ function playRound (playerSelection, computerSelection) {
         playRound(playerSelectionLower, computerSelection);
     }
 }
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound(playerSelectionLower, computerSelection);
+function game(gameNumber = 5) {
+    for (let i = 0; i < gameNumber; i++) {
         newChoices();
+        playRound(playerSelectionLower, computerSelection);
     }
+    let playAgain = prompt("Do you want to play more? (Yes or No)");
+    let playAgainLower = playAgain.toLowerCase();
+    if (playAgainLower == "yes") {
+        let gameNumber = prompt("How many rounds would you like to play?");
+        if (gameNumber > 0) {
+            game(gameNumber);
+        } else if (gamenumber <= 0) {
+            return alert("Then we are done!");
+        } else {
+            gameNumber = prompt("Enter a number of rounds to play.");
+        }
+    } else if (playAgainLower == "no") {
+        return 0;
+    } else {
+        playAgain = prompt("Please enter yes or no.");
+    }
+}
+function getResults() {
     if (playerScore > computerScore) {
         return console.log("You beat the browser!");
     } else if (computerScore > playerScore) {
@@ -64,3 +83,4 @@ function game() {
     }
 }
 game();
+getResults();
