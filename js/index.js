@@ -4,6 +4,11 @@ let computerSelection = getComputerChoice();
 let playerScore = 0;
 let computerScore = 0;
 
+function newChoices() {
+    playerSelection = prompt("Rock, Paper or Scissors?");
+    playerSelectionLower = playerSelection.toLowerCase();
+    computerSelection = getComputerChoice();
+}
 function randomNumber (min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
@@ -44,8 +49,18 @@ function playRound (playerSelection, computerSelection) {
         let computerSelection = getComputerChoice();
         playRound(playerSelectionLower, computerSelection);
     }
+}
 function game() {
-    
+    for (let i = 0; i < 5; i++) {
+        playRound(playerSelectionLower, computerSelection);
+        newChoices();
+    }
+    if (playerScore > computerScore) {
+        return console.log("You beat the browser!");
+    } else if (computerScore > playerScore) {
+        return console.log("The computer beat you!");
+    } else if (playerScore === computerScore) {
+        return console.log("The game ended in a draw!");
+    }
 }
-}
-playRound(playerSelectionLower, computerSelection);
+game();
