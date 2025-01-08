@@ -1,0 +1,30 @@
+#score {
+    display: inline-flex;
+    justify-content: start;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+#score p {
+    margin: 0;
+}
+#results {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    max-height: 30rem;
+    max-width: 20rem;
+    min-width: 20rem;
+    min-height: 20rem;
+    scroll-behavior: smooth;
+}
+#results p {
+    margin: 0.2rem;
+}
+#results br {
+    margin: 0.6rem;
+}
